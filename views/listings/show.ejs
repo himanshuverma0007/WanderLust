@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wanderlust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-4 text-center">Listing Details</h3>
+
+      <ul class="space-y-3 text-gray-700">
+        <li class="w-full">
+          <img
+            src="<%= listing.image %>"
+            alt="Listing Image"
+            class="w-full h-64 object-cover rounded-md border border-gray-300"
+          />
+        </li>
+        <li><span class="font-semibold">Title:</span> <%= listing.title %></li>
+        <li><span class="font-semibold">Description:</span> <%= listing.description %></li>
+        <li>
+          <span class="font-semibold">Price:</span> ₹ <%= listing.price.toLocaleString("en-IN") %>
+        </li>
+        <li><span class="font-semibold">Location:</span> <%= listing.location %></li>
+        <li><span class="font-semibold">Country:</span> <%= listing.country %></li>
+      </ul>
+
+      <div class="mt-6 flex justify-between items-center">
+        <a
+          href="/listings/<%= listing._id %>/edit"
+          class="text-blue-600 hover:underline"
+        >
+          ✏️ Edit Listing
+        </a>
+        <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+          <button
+            type="submit"
+            class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-200"
+          >
+            🗑️ Delete
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

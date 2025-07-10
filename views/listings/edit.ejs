@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wanderlust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+      <h3 class="text-2xl font-semibold mb-6 text-center text-blue-600">Edit Your Listing</h3>
+      <form
+        method="POST"
+        action="/listings/<%= listing._id %>?_method=PUT"
+        class="space-y-4"
+      >
+        <div>
+          <label class="block mb-1 text-gray-700">Title</label>
+          <input
+            name="listing[title]"
+            value="<%= listing.title %>"
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-gray-700">Description</label>
+          <textarea
+            name="listing[description]"
+            rows="3"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          ><%= listing.description %></textarea>
+        </div>
+
+        <div>
+          <label class="block mb-1 text-gray-700">Image URL</label>
+          <input
+            name="listing[image]"
+            value="<%= listing.image %>"
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-gray-700">Price</label>
+          <input
+            name="listing[price]"
+            value="<%= listing.price %>"
+            type="number"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-gray-700">Country</label>
+          <input
+            name="listing[country]"
+            value="<%= listing.country %>"
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-1 text-gray-700">Location</label>
+          <input
+            name="listing[location]"
+            value="<%= listing.location %>"
+            type="text"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200"
+          >
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
